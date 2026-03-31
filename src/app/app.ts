@@ -20,6 +20,7 @@ interface StopEta {
   minutesAway: number | null;
   time: string;
   remark: string;
+  isRealTime: boolean;
 }
 
 interface StopData {
@@ -126,13 +127,16 @@ export class App implements OnInit, OnDestroy {
           const now = new Date();
           const etas: StopEta[] = (res.data || [])
             .filter(e => e.eta)
+            .slice(0, 3)
             .map(e => {
               const etaDate = new Date(e.eta!);
               const diff = Math.round((etaDate.getTime() - now.getTime()) / 60000);
+              const remark = (e.rmk_en || '').toLowerCase();
               return {
                 minutesAway: diff,
                 time: etaDate.toLocaleTimeString('en-HK', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Hong_Kong' }),
-                remark: e.rmk_en || ''
+                remark: e.rmk_en || '',
+                isRealTime: !remark.includes('scheduled')
               };
             });
 

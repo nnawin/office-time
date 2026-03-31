@@ -63,9 +63,13 @@
                     <div class="eta-sequence">{{ j + 1 }}</div>
                     <div class="eta-time-block">
                       <span class="eta-time">{{ eta.time }}</span>
-                      @if (eta.remark) {
-                        <span class="eta-remark">{{ eta.remark }}</span>
-                      }
+                      <span class="eta-type" [class.realtime]="eta.isRealTime" [class.scheduled]="!eta.isRealTime">
+                        @if (eta.isRealTime) {
+                          <span class="eta-type-dot"></span> Real-time
+                        } @else {
+                          <span class="eta-type-dot"></span> Scheduled
+                        }
+                      </span>
                     </div>
                     <div class="eta-pill" [ngClass]="getEtaClass(eta.minutesAway)">
                       {{ getEtaLabel(eta.minutesAway) }}

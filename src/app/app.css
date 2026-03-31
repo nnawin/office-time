@@ -314,6 +314,38 @@
   font-weight: 500;
 }
 
+.eta-type {
+  font-size: 0.68rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.eta-type-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.eta-type.realtime {
+  color: #4ade80;
+}
+
+.eta-type.realtime .eta-type-dot {
+  background: #4ade80;
+  box-shadow: 0 0 4px rgba(74, 222, 128, 0.5);
+}
+
+.eta-type.scheduled {
+  color: #94a3b8;
+}
+
+.eta-type.scheduled .eta-type-dot {
+  background: #64748b;
+}
+
 /* ETA Pill */
 .eta-pill {
   font-size: 0.75rem;
