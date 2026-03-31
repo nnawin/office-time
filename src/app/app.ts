@@ -89,7 +89,7 @@ export class App implements OnInit, OnDestroy {
     }
     return {
       routeNumber: 'E32A',
-      destination: 'Tin Hau Station',
+      destination: 'Kwai Fong',
       stops: [
         { name: 'Ying Hei Road', stopId: '003443' },
         { name: 'Yu Nga Shopping Centre', stopId: '003815' }
