@@ -15,9 +15,10 @@
   margin: 0 auto;
   padding: 24px 20px;
   padding-top: calc(32px + env(safe-area-inset-top, 20px));
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 28px;
 }
 
@@ -370,7 +371,12 @@
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .dashboard { padding: 16px 12px; gap: 20px; }
+  .dashboard {
+    padding: 16px 12px;
+    padding-top: calc(16px + env(safe-area-inset-top, 20px));
+    gap: 20px;
+    justify-content: center;
+  }
 
   .header {
     flex-wrap: wrap;
