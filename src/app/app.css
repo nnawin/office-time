@@ -14,6 +14,7 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 24px 20px;
+  padding-top: calc(24px + env(safe-area-inset-top, 0px));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -378,30 +379,26 @@
   }
 
   .header-left {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 12px;
     width: 100%;
   }
 
-  .route-selector { order: 1; }
-
   .route-info {
-    order: 2;
-    flex: 1;
-    min-width: 0;
+    width: 100%;
   }
 
   .route-badge { font-size: 1.1rem; padding: 8px 14px; }
 
-  .header-info h1 { font-size: 1rem; }
+  .header-info h1 { font-size: 1.05rem; }
 
   .header-right {
     width: 100%;
-    justify-content: flex-end;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
   }
 
-  .clock { font-size: 1.8rem; }
+  .clock { font-size: 2rem; }
 
   .stops-grid { grid-template-columns: 1fr; }
 }
