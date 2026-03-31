@@ -369,8 +369,39 @@
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .stops-grid { grid-template-columns: 1fr; }
-  .clock { font-size: 1.2rem; }
+  .dashboard { padding: 16px 12px; gap: 20px; }
+
+  .header {
+    flex-wrap: wrap;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .header-left {
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .route-selector { order: 1; }
+
+  .route-info {
+    order: 2;
+    flex: 1;
+    min-width: 0;
+  }
+
   .route-badge { font-size: 1.1rem; padding: 8px 14px; }
-  .header { padding: 16px 18px; }
+
+  .header-info h1 { font-size: 1rem; }
+
+  .header-right {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .clock { font-size: 1.8rem; }
+
+  .stops-grid { grid-template-columns: 1fr; }
 }
