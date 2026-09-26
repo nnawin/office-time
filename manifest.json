@@ -1,0 +1,17 @@
+{
+  "name": "Century Link Board · E11S Ying Hei Road",
+  "short_name": "E11S Board",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B1B2B",
+  "theme_color": "#0B1B2B",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

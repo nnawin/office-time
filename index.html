@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+   <meta name="theme-color" content="#0B1B2B" />
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data:;">
+  <meta name="description" content="Live E11S board for Ying Hei Road, nearby Tung Chung North stops, and Western Harbour Tunnel connections." />
+  <title>Century Link Board · E11S Ying Hei Road</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand">
+      <span class="lozenge">E11S</span>
+      <div class="brand-text">
+        <p class="kicker">Tung Chung North · Ying Hei Road</p>
+        <h1>Century Link Board</h1>
+      </div>
+    </div>
+    <div class="clock" id="clock">--:--:--</div>
+  </header>
+
+  <main>
+    <section class="hero" aria-live="polite">
+      <p class="dest">Next E11S at Century Link, Ying Hei Road → Tin Hau Station</p>
+      <p class="status-chip" id="statusChip">…</p>
+      <div class="mega" id="mega">
+        <span class="mega-num" id="megaNum">—</span>
+        <span class="mega-unit">min</span>
+      </div>
+      <p class="hero-sub" id="heroSub">Fetching Citybus live ETA…</p>
+      <p class="leave-by" id="leaveBy" hidden></p>
+    </section>
+
+    <section class="board">
+      <div class="board-head">
+        <h2>E11S at this stop</h2>
+        <p class="freshness" id="freshness">—</p>
+      </div>
+      <ol class="rows" id="e11sRows"></ol>
+    </section>
+
+    <section class="board">
+      <div class="board-head">
+        <h2>Nearest stops</h2>
+        <p class="freshness">Live Citybus arrivals around Ying Hei Road</p>
+      </div>
+      <div class="tabs" id="nearbyTabs"></div>
+      <ol class="rows" id="nearbyRows"></ol>
+    </section>
+
+    <section class="board">
+      <div class="board-head">
+        <h2>WHC connection · North Point school</h2>
+        <p class="freshness" id="whcFresh">Alight E11S at Western Harbour Crossing BBI</p>
+      </div>
+      <p class="hint">
+        Weekday morning path: E11S at Ying Hei Road → Lantau Link →
+        <strong>Western Harbour Crossing Bus-Bus Interchange</strong> →
+        960X / 968X / 960B / 982C / 955 →
+        <strong>North Point Government Primary School, King’s Road</strong>
+        (the stop these routes actually serve).
+      </p>
+      <div class="conn-meta" id="connMeta">Estimating E11S arrival at the tunnel…</div>
+      <div class="conn-table" id="connTable"></div>
+    </section>
+
+    <section class="controls">
+      <label>
+        <span>Walk to Ying Hei Road</span>
+        <select id="walkMins">
+          <option value="0">0 min</option>
+          <option value="2">2 min</option>
+          <option value="4" selected>4 min</option>
+          <option value="6">6 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+      </label>
+      <label>
+        <span>WHC interchange walk</span>
+        <select id="xferMins">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+        </select>
+      </label>
+      <button type="button" class="ghost" id="notifyBtn">Notify at 3 min</button>
+      <button type="button" class="ghost" id="refreshBtn">Refresh now</button>
+    </section>
+
+    <section class="note">
+      <p>E11S runs Monday–Friday mornings only. Saturday and Sunday emptiness at Century Link is expected. Nearby poles such as Caribbean Coast and The Visionary still have all-day routes like S56, E11A and E21D.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Live data from Citybus and KMB via
+      <a href="https://data.gov.hk/en-data/dataset/ctb-eta-transport-realtime-eta" rel="noreferrer">DATA.GOV.HK</a>
+      · Home stop <code>003443</code>
+    </p>
+    <p class="fine">Estimates move with traffic. Connection advice is a best-effort overlay of live ETAs plus published weekday windows — not a guarantee you will make the interchange.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
